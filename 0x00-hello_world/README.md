@@ -1,1 +1,1 @@
-creates a file and makes it excecutable
+creating a c program
