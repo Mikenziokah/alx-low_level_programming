@@ -1,1 +1,1 @@
-the c programing project
+this script creats a file that does not compile
