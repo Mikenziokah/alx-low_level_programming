@@ -1,1 +1,1 @@
-creats alphabets followed by a new line
+creats capital and small alphabets
