@@ -1,1 +1,1 @@
-creats capital and small alphabets
+alphabets that ommit some others
