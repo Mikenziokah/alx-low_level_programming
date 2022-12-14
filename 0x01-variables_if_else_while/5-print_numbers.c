@@ -1,0 +1,16 @@
+#include <stdio.h>
+/**
+ * main-Entry point
+ *
+ * Return:Always0(success)
+ */
+int main(void)
+{
+int num;
+
+for (num = 0; num < 10; num++)
+printf(num);
+putchar('\n');
+return (0);
+}
+

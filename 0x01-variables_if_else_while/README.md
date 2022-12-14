@@ -1,1 +1,1 @@
-alphabets that ommit some others
+singles of base ten
