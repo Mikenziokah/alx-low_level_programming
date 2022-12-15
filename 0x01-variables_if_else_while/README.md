@@ -1,1 +1,1 @@
-hexadecimal
+combination of single number
