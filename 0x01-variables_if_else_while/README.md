@@ -1,1 +1,1 @@
-singles of base ten
+displays sinle digits from zero to ten
