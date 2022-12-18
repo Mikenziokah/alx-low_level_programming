@@ -3,7 +3,7 @@
 /**
  * print_alphabet - entry point
  *
- * Return 0
+ * Return Always 0(success)
  */
 
 	void print_alphabet(void)
@@ -14,5 +14,4 @@
 		_putchar(c);
 			c++;
 			_putchar('\n');
-			return (0);
 }
