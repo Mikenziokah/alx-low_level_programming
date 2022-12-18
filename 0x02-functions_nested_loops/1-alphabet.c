@@ -1,4 +1,4 @@
-#include "MAIN.H"
+#include "main.h"
 
 /**
  * print_alphabet - entry point
