@@ -1,10 +1,10 @@
 #include <stdio.h>
 /**
- * main entry point
+ * main - my first c
  *
  * Return:Always (success)
  */
-int main(void)	
+int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
 return (0);
