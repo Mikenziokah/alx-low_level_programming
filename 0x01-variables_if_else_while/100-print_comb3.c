@@ -11,20 +11,16 @@ int main(void)
 	int i;
 	int x;
 
-	for (i = 48; i <= 57; i++)
+	for (i = 0; i < 10; i++)
 	{
-		for (x = 48; x <= 57; x++)
+		for (x = 1; x < 10; x++)
 		{
-			if (i > x)
+			if (i < x && i != x)
 			{
-			putchar(i);
-			putchar(x);
-				if (i == 57 || x == 57)
-					continue;
-			{
-					putchar(',');
-					putchar(' ');
-				}
+			putchar(i + '0');
+			putchar(x + '0');
+			putchar(',');
+			putchar(' ');
 			}
 		}
 	}
