@@ -2,8 +2,8 @@
 
 /**
  * factorial - returns a factorial of a given number
- * @n; interger to be factorised
- * Return: always 0
+ * @n: interger to be factorised
+ * Return: interger
  */
 
 int factorial(int n)
