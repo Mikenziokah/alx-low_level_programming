@@ -5,7 +5,7 @@
  * main - prints all the arguments it receives
  * @argc: counter
  * @argv: vector
- * Return: processed arguments
+ * Return: Always (0) success
  */
 
 int main(int argc, char *argv[])
@@ -16,5 +16,5 @@ int main(int argc, char *argv[])
 	{
 		printf("%s\n", argv[x]);
 	}
-	return (x);
+	return (0);
 }
