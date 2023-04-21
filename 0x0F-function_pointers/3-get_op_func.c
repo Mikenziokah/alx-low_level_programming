@@ -1,6 +1,7 @@
 #include "3-calc.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 /**
  * get_op_func  - selects the function asked by the user
  * @s: operator passed as argument to the program
@@ -14,11 +15,17 @@ int (*get_op_func(char *s))(int, int)
 		{"*", op_mul},
 		{"/", op_div},
 		{"%", op_mod},
-		{NULL},
+		{NULL, NULL},
 		};
-	int i = 0;
+	int i;
 
-	while (ops[i].op != NULL && *(ops[i].op) != *s)
+	i = 0;
+
+	while (ops[i].op)
+	{
+		if (strcmp(ops[i].op, s) == 0)
+			return (ops[i].f);
 		i++;
-	return (ops[i]);
+	}
+	return (NULL);
 }
