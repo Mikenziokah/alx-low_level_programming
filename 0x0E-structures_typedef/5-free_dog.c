@@ -6,7 +6,7 @@
  * @d: the dog
  * Return:0
  */
-void free_dog(dog_t *d);
+void free_dog(dog_t *d)
 {
 	if (d)
 	{
