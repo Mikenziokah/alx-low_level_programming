@@ -1,4 +1,4 @@
-#include <stdlb.h>
+#include <stdlib.h>
 #include <stdio.h>
 /**
  * main - prints opcodes of its own main function
@@ -27,10 +27,10 @@ int main(int argc, char *argv[])
 	{
 		if (x == bytes - 1)
 		{
-		printf("%02hhx\n", i[x]);
-		break;
-	}
-	printf("02hhx", i[x]);
+			printf("%02hhx\n", i[x]);
+			break;
+		}
+		printf("%02hhx", i[x]);
 	}
 	return (0);
 }
