@@ -1,6 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
-#include <stdlib.h>
+
 void first(void) __attribute__ ((constructor));
 /**
  * first - prints characters before main
