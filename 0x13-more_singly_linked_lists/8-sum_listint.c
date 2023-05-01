@@ -9,7 +9,7 @@
 int sum_listint(listint_t *head)
 {
 	listint_t *bytes = head;
-	int sum;
+	int sum = 0;
 
 	while (bytes)
 	{
