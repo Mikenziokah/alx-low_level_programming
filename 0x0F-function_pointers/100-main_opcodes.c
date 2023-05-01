@@ -1,3 +1,4 @@
+#include "function_pointers.h"
 #include <stdlib.h>
 #include <stdio.h>
 /**
@@ -6,7 +7,7 @@
  * @argv: vector
  * Return: Always 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	char *i;
 	int bytes, x;
