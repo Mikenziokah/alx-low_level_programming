@@ -12,7 +12,7 @@ int pop_listint(listint_t **head)
 	listint_t *bytes;
 	int x;
 
-	if (!head && !*head)
+	if (!head || !*head)
 		return (0);
 
 	bytes = (*head)->next;
