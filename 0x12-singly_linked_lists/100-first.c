@@ -1,12 +1,11 @@
 #include "lists.h"
-#include <stdio.h>
 
-void first(void) __attribute__ ((constructor));
+void constructor(void) __attribute__ ((constructor));
 /**
- * first - prints characters before main
- * function is passed
+ * constructor - prints characters before main
+ * Return: function is passed
  */
-void first(void)
+void constructor(void)
 {
 	printf("You're beat! and yet, you must allow,\n"
 		"I bore my house upon my back!\n");
