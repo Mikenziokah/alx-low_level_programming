@@ -9,8 +9,8 @@
  */
 int main(int argc, char **argv)
 {
-	char *i;
-	int bytes, x;
+	char *i = (char *)main;
+	int bytes;
 
 	if (argc != 2)
 	{
@@ -23,15 +23,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(2);
 	}
-	i = (char *)main;
-	for (x = 0; x < bytes; x++)
-	{
-		if (x == bytes - 1)
-		{
-			printf("%02hhx\n", i[x]);
-			break;
-		}
-		printf("%02hhx", i[x]);
-	}
+	while (bytes--)
+		printf("%02hhx%s", *i++, bytes ? "" : "\n");
 	return (0);
 }
