@@ -4,8 +4,8 @@
 /**
  * new_dog - creates new dog
  * @name: name of the dog
- * @age: age of the dog in years
- * @owner: owener of the dog
+ * @age: age of the dog
+ * @owner: owner of the dog
  * Return: pointer to a new dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
@@ -22,7 +22,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog);
 		return (NULL);
 	}
-	dog->name = malloc(x * sizeof(dog->name));
+	dog_name = malloc(x * sizeof(dog->name));
 	if (dog->name == NULL)
 	{
 		free(dog->name);
