@@ -23,8 +23,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	if (idx == 0)
 	{
-		first->next = second;
-		second = first;
+		first->next = *head;
+		*head = first;
 		return (first);
 	}
 	for (x = 0; second && x < idx; x++)
@@ -38,5 +38,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		else
 			second = second->next;
 	}
+	free(first);
 	return (NULL);
 }
