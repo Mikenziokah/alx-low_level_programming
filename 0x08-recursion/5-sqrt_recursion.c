@@ -19,7 +19,7 @@ int sqrt_formulae(int n, int i)
 	}
 	else
 	{
-		return (sqrt_formulae(n, i +1));
+		return (sqrt_formulae(n, i + 1));
 	}
 }
 /**
