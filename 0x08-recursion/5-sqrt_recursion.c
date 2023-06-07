@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _sqrt_formulae - finds the squareroot on intergers
+ * sqrt_formulae - finds the squareroot on intergers
  * @n: whole integer
  * @i: rootformulae
  * Return: int i -1 if no square root found
