@@ -22,9 +22,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
+
 	for (x = 0; x < (nmemb * size); x++)
 	{
-	       y[x] = 0;
+	y[x] = 0;
 	}
 	return (y);
 }
