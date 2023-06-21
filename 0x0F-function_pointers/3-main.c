@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	num1 = atoi(argv[1]);
 	op = argv[2];
 	num2 = atoi(argv[3]);
-	if (get_op_func(op) == NULL || op[1] != '\0')
+	if (get_op_func(op) == NULL && op[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 			(*op == '%' && num2 == 0))
 	{
 		printf("Error\n");
-		exit(99);
+		exit(100);
 	}
 	printf("%d\n", get_op_func(op)(num1, num2));
 			return (0);
