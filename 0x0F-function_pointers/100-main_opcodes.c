@@ -23,6 +23,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(2);
 	}
+	while (bytes--)
 		printf("%02hhx%s", *i++, bytes ? "" : "\n");
 	return (0);
 }
