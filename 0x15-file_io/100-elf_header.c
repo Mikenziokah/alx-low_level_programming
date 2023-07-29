@@ -14,7 +14,7 @@ void check_elf(unsigned char *e_ident)
 				e_ident[start] != 'L' &&
 				e_ident[start] != 'F')
 		{
-			printf(STDERR_FILENO, "Error: no ELF file found\n");
+			dprintf(STDERR_FILENO, "Error: no ELF file found\n");
 			exit(98);
 		}
 	}
@@ -31,7 +31,7 @@ void print_magic(unsigned char *e_ident)
 
 	for (start = 0; start < EI_NIDENT; start++)
 	{
-		printf("%02x" e_ident[start]);
+		printf("%02x", e_ident[start]);
 		if (start == EI_NIDENT - 1)
 			printf("\n");
 		else
@@ -52,11 +52,34 @@ void print_class(unsigned char *e_ident)
 			printf("none\n");
 			break;
 		case ELFCLASS32:
-			printf("elf32\n");
+			printf("ELF32\n");
 			break;
 		case ELFCLASS64:
-			printf("ELF64\n")
+			printf("ELF64\n");
 				break;
+		default:
+			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+	}
+}
+/**
+ * print_data - prints
+ * @e_ident: pointer
+ */
+void print_data(unsigned char *e_ident)
+{
+	printf(" Data: ");
+
+	switch (e_ident[EI_DATA])
+	{
+		case ELFDATANONE:
+			printf("none\n");
+			break;
+		case ELFDATA2LSB:
+			printf("2's complement, little endian\n");
+			break;
+		case ELFDATA2MSB:
+			printf("2's complement, big endian\n");
+			break;
 		default:
 			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
@@ -120,7 +143,7 @@ void print_osabi(unsigned char *e_ident)
 			printf("standalone App\n");
 			break;
 		default:
-			printf("unknown: %x>\n", ptr[EI_OSABI]);
+			printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
 /**
@@ -141,7 +164,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
-	printf("Type: ")
+	printf("Type: ");
 
 		switch (e_type)
 		{
@@ -151,7 +174,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 			case ET_REL:
 				printf("REL (Relocatable file)\n");
 				break;
-			case ET_EXE:
+			case ET_EXEC:
 				printf("EXEC (Executable file)\n");
 				break;
 			case ET_DYN:
@@ -172,7 +195,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("Entry point address: ");
-	if (e_entry[EI_DATA] == ELFDATA2MSB)
+	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
 			((e_entry >> 8) & 0xFF00FF);
@@ -181,7 +204,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
 	else
-		printf("%#x\n", e_entry);
+		printf("%#lx\n", e_entry);
 }
 /**
  * close_elf - closeses
@@ -191,7 +214,7 @@ void close_elf(int elf)
 {
 	if (close(elf) == -1)
 	{
-		dprint(STDERR_FILENO, "Error: can't close fd %d\n", elf);
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", elf);
 		exit(98);
 	}
 }
@@ -209,14 +232,14 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	x = open(argv[1], O_RDONLY);
 	if (x == -1)
 	{
-		dprints(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
 		close(x);
-		dprints(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
 	y = read(x, header, sizeof(Elf64_Ehdr));
@@ -224,7 +247,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	{
 		free(header);
 		close(x);
-		dprints(STDERR_FILENO, "Error: '%s' : No such file\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: '%s' : No such file\n", argv[1]);
 		exit(98);
 	}
 	check_elf(header->e_ident);
